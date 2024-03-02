@@ -16,3 +16,6 @@ dependencyResolutionManagement {
 rootProject.name = "MondlyTest"
 include(":app")
 include(":feature:imagelist")
+include(":core:data")
+include(":core:domain")
+include(":core:network")
