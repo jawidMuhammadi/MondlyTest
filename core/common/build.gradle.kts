@@ -1,4 +1,3 @@
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
@@ -7,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.jawidmuhammadi.data"
+    namespace = "com.jawidmuhammadi.common"
     compileSdk = 34
 
     defaultConfig {
@@ -37,12 +36,7 @@ android {
 
 dependencies {
 
-    implementation(project(":core:network"))
-    implementation(project(":core:model"))
-    implementation(project(":core:common"))
     implementation(libs.core.ktx)
-    implementation(libs.appcompat)
-    implementation(libs.material)
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
 

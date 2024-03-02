@@ -1,5 +1,6 @@
 package com.jawidmuhammadi.data.di
 
+import com.jawidmuhammadi.common.MondlyIoDispatcher
 import com.jawidmuhammadi.data.ProductDtoMapper
 import com.jawidmuhammadi.data.ProductRepository
 import com.jawidmuhammadi.data.ProductRepositoryImp
@@ -8,7 +9,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.CoroutineDispatcher
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
@@ -19,7 +20,7 @@ class DataModule {
     @Singleton
     fun provideProductRepository(
         networkDataSource: ProductNetworkDataSource,
-        dispatcher: Dispatchers,
+        @MondlyIoDispatcher dispatcher: CoroutineDispatcher,
         productDtoMapper: ProductDtoMapper
     ): ProductRepository {
         return ProductRepositoryImp(networkDataSource, productDtoMapper, dispatcher)
