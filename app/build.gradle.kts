@@ -52,6 +52,7 @@ android {
 
 dependencies {
 
+    implementation(project(":feature:products"))
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.activity.compose)

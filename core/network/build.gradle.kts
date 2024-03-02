@@ -2,7 +2,7 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
-    alias(libs.plugins.ksp)
+    kotlin("kapt")
     alias(libs.plugins.hilt.android)
 }
 
@@ -45,7 +45,7 @@ dependencies {
     implementation(libs.retrofit.converter)
     implementation(libs.okhttp)
     implementation(libs.hilt.android)
-    implementation(libs.hilt.android.compiler)
+    kapt(libs.hilt.android.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

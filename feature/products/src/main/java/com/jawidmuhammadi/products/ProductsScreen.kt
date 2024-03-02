@@ -15,6 +15,7 @@ import com.jawidmuhammadi.model.ProductItem
 
 @Composable
 fun ProductsScreen(viewModel: ProductListViewModel = viewModel()) {
+
     val uiState: ProductsUiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     when (uiState) {
@@ -29,7 +30,7 @@ fun ProductsScreen(viewModel: ProductListViewModel = viewModel()) {
 }
 
 @Composable
-fun ProductList(products: List<ProductItem>) {
+private fun ProductList(products: List<ProductItem>) {
     products.forEachIndexed { _, productItem ->
         Column {
             Text(modifier = Modifier.padding(16.dp), text = productItem.name)
