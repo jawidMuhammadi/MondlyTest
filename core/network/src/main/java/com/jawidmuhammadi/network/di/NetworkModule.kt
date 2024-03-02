@@ -1,5 +1,7 @@
 package com.jawidmuhammadi.network.di
 
+import com.jawidmuhammadi.network.ProductNetworkDataSource
+import com.jawidmuhammadi.network.ProductNetworkDataSourceImpl
 import com.jawidmuhammadi.network.ProductRestClient
 import dagger.Module
 import dagger.Provides
@@ -11,7 +13,12 @@ import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
 @Module
-class NetworkModule {
+internal class NetworkModule {
+
+    @Singleton
+    @Provides
+    fun provideProductNetworkDataSource(restClient: ProductRestClient): ProductNetworkDataSource =
+        ProductNetworkDataSourceImpl(restClient)
 
     @Singleton
     @Provides
