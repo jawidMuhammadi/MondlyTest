@@ -1,23 +1,23 @@
 package com.jawidmuhammadi.data
 
+import com.jawidmuhammadi.model.ProductItem
 import com.jawidmuhammadi.network.ProductNetworkDataSource
-import com.jawidmuhammadi.network.ProductsDto
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 interface ProductRepository {
-    suspend fun getProducts(): ProductsDto
+    suspend fun getProducts(): List<ProductItem>
 }
 
 internal class ProductRepositoryImp(
     private val networkDataSource: ProductNetworkDataSource,
+    private val productDtoMapper: ProductDtoMapper,
     private val dispatcher: Dispatchers
 ) : ProductRepository {
-    override suspend fun getProducts(): ProductsDto {
+    override suspend fun getProducts(): List<ProductItem> {
         return withContext(dispatcher.IO) {
-            networkDataSource.getProducts()
+            productDtoMapper.map(networkDataSource.getProducts())
         }
-
     }
 }
 
