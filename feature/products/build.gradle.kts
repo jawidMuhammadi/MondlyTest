@@ -33,19 +33,32 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.1"
+    }
 }
 
 dependencies {
 
     implementation(project(":core:domain"))
     implementation(project(":core:model"))
+    implementation(libs.activity.compose)
+    implementation(platform(libs.compose.bom))
+    implementation(libs.ui)
+    implementation(libs.ui.graphics)
+    implementation(libs.ui.tooling.preview)
+    implementation(libs.material3)
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
-    implementation(libs.material)
     implementation(libs.hilt.android)
     implementation(libs.hilt.android.compiler)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.viewmodel.compose)
+    implementation(libs.lifecycle.runtime.compose)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
