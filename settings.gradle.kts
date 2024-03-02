@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "MondlyTest"
 include(":app")
- 
+include(":feature:imagelist")
