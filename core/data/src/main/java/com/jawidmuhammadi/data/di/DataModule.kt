@@ -1,5 +1,6 @@
 package com.jawidmuhammadi.data.di
 
+import com.jawidmuhammadi.data.ProductDtoMapper
 import com.jawidmuhammadi.data.ProductRepository
 import com.jawidmuhammadi.data.ProductRepositoryImp
 import com.jawidmuhammadi.network.ProductNetworkDataSource
@@ -18,8 +19,9 @@ class DataModule {
     @Singleton
     fun provideProductRepository(
         networkDataSource: ProductNetworkDataSource,
-        dispatcher: Dispatchers
+        dispatcher: Dispatchers,
+        productDtoMapper: ProductDtoMapper
     ): ProductRepository {
-        return ProductRepositoryImp(networkDataSource, dispatcher)
+        return ProductRepositoryImp(networkDataSource, productDtoMapper, dispatcher)
     }
 }
