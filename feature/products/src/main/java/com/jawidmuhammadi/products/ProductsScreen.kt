@@ -1,5 +1,6 @@
 package com.jawidmuhammadi.products
 
+import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -50,11 +51,12 @@ private fun ProductsContent(
     val topPadding by remember {
         derivedStateOf { if (gridState.firstVisibleItemIndex > 0) 0.dp else 16.dp }
     }
+    val animatedPadding by animateDpAsState(targetValue = topPadding, label = "")
     val columnCount = calculateColumnCount(windowSizeClass)
     LazyVerticalGrid(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(top = topPadding, start = 16.dp, end = 16.dp),
+            .padding(top = animatedPadding, start = 16.dp, end = 16.dp),
         horizontalArrangement = Arrangement.spacedBy(12.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
         columns = GridCells.Fixed(columnCount),
