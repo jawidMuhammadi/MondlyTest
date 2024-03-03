@@ -1,4 +1,4 @@
-package com.jawidmuhammadi.sharedtest
+package com.jawidmuhammadi.sharedtest.data
 
 import com.jawidmuhammadi.common.dto.ProductsDto
 import com.jawidmuhammadi.common.dto.ProductsDto.DataCollection

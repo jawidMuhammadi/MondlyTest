@@ -1,7 +1,7 @@
 package com.jawidmuhammadi.domain
 
 import com.jawidmuhammadi.data.ProductRepository
-import com.jawidmuhammadi.sharedtest.ProductItemMother
+import com.jawidmuhammadi.sharedtest.data.ProductItemMother
 import io.mockk.coEvery
 import io.mockk.mockk
 import junit.framework.TestCase.assertEquals

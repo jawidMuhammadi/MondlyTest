@@ -63,7 +63,11 @@ dependencies {
     implementation(libs.coil.kt.compose)
     implementation(libs.androidx.compose.material3.windowSizeClass)
 
+    testImplementation(project(":sharedtest"))
     testImplementation(libs.junit)
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockk)
+    testImplementation(libs.kotlinx.coroutines.test)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
 }

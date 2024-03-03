@@ -24,9 +24,8 @@ class ProductListViewModel @Inject constructor(
             try {
                 val result = getProducts()
                 _uiStat.value = ProductsUiState.Success(result)
-                Log.d("products: ", result.toString())
             } catch (exp: Exception) {
-                _uiStat.value = ProductsUiState.Error("Opps, something went wrong!")
+                _uiStat.value = ProductsUiState.Error(exp.message.toString())
             }
         }
     }

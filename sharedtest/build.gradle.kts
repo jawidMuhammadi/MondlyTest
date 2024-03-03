@@ -36,8 +36,10 @@ dependencies {
 
     implementation(project(":core:model"))
     implementation(project(":core:common"))
+    implementation(libs.kotlinx.coroutines.test)
     implementation(libs.core.ktx)
-    testImplementation(libs.junit)
+    implementation(libs.junit)
+
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
 }

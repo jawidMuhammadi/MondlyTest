@@ -1,8 +1,8 @@
 package com.jawidmuhammadi.data
 
 import com.jawidmuhammadi.network.ProductNetworkDataSource
-import com.jawidmuhammadi.sharedtest.ProductItemMother
-import com.jawidmuhammadi.sharedtest.ProductsDtoMother
+import com.jawidmuhammadi.sharedtest.data.ProductItemMother
+import com.jawidmuhammadi.sharedtest.data.ProductsDtoMother
 import io.mockk.coEvery
 import io.mockk.mockk
 import junit.framework.TestCase.assertEquals
@@ -32,6 +32,6 @@ class ProductRepositoryTest {
             val actualResult = productRepository.getProducts()
             val expected = ProductItemMother.buildProductItems(2)
 
-            assertEquals(actualResult, expected)
+            assertEquals(expected, actualResult)
         }
 }

@@ -1,6 +1,6 @@
 package com.jawidmuhammadi.network
 
-import com.jawidmuhammadi.sharedtest.ProductsDtoMother.buildProductsDto
+import com.jawidmuhammadi.sharedtest.data.ProductsDtoMother.buildProductsDto
 import io.mockk.coEvery
 import io.mockk.mockk
 import junit.framework.TestCase.assertEquals
@@ -25,6 +25,6 @@ class ProductNetworkDataSourceTest {
         val result = productNetworkDataSource.getProducts()
         val expected = buildProductsDto(2)
 
-        assertEquals(result, expected)
+        assertEquals(expected, result)
     }
 }
