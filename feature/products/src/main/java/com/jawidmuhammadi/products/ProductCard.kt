@@ -32,7 +32,7 @@ import com.jawidmuhammadi.model.ProductItem
 @Composable
 fun ProductCard(
     product: ProductItem,
-    onItemClick: (productId: String) -> Unit
+    onItemClick: (productId: ProductItem) -> Unit
 ) {
     var isLoading by remember { mutableStateOf(true) }
     var isError by remember { mutableStateOf(false) }
@@ -51,7 +51,7 @@ fun ProductCard(
         ),
         shape = MaterialTheme.shapes.small,
         modifier = Modifier.fillMaxWidth(),
-        onClick = { onItemClick(product.id) }
+        onClick = { onItemClick(product) }
     ) {
         Box(modifier = Modifier.fillMaxWidth()) {
             if (isLoading) {

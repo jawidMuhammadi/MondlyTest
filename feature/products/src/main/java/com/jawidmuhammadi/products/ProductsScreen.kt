@@ -41,14 +41,13 @@ fun ProductsScreen(
             ProductsContent(
                 products = (uiState as ProductsUiState.Success).products,
                 windowSizeClass = windowSizeClass.widthSizeClass,
-                onProductItemClick = {
+                onProductItemClick = { productItem ->
                     //   TODO("Handle click events")
                 }
             )
         }
 
         is ProductsUiState.Error -> {}
-
         is ProductsUiState.Loading -> {
             LoadingContent()
         }
@@ -61,7 +60,7 @@ fun ProductsScreen(
 private fun ProductsContent(
     products: List<ProductItem>,
     windowSizeClass: WindowWidthSizeClass,
-    onProductItemClick: (productId: String) -> Unit
+    onProductItemClick: (productItem: ProductItem) -> Unit
 ) {
     val gridState = rememberLazyGridState()
     val topPadding by remember {
