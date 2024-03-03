@@ -4,7 +4,7 @@ import com.jawidmuhammadi.model.ProductItem
 import com.jawidmuhammadi.common.dto.ProductsDto
 import javax.inject.Inject
 
-class ProductDtoMapper @Inject constructor() {
+internal class ProductDtoMapper @Inject constructor() {
     fun map(productsDto: ProductsDto): List<ProductItem> {
         val productList = mutableListOf<ProductItem>()
         productsDto.dataCollection.map {

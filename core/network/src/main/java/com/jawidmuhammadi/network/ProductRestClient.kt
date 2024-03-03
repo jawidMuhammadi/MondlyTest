@@ -3,7 +3,7 @@ package com.jawidmuhammadi.network
 import com.jawidmuhammadi.common.dto.ProductsDto
 import retrofit2.http.GET
 
-interface ProductRestClient {
+internal interface ProductRestClient {
     @GET("/mondly_android_code_task_json")
     suspend fun getProducts(): ProductsDto
 }
