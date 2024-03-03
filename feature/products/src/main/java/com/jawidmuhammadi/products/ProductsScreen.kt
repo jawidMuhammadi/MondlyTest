@@ -2,18 +2,24 @@ package com.jawidmuhammadi.products
 
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -39,6 +45,11 @@ fun ProductsScreen(
         }
 
         is ProductsUiState.Error -> {}
+
+        is ProductsUiState.Loading -> {
+            LoadingContent()
+        }
+
         else -> {}
     }
 }
@@ -76,6 +87,22 @@ private fun calculateColumnCount(windowSizeClass: WindowWidthSizeClass): Int {
         WindowWidthSizeClass.Medium -> 3
         WindowWidthSizeClass.Expanded -> 4
         else -> 1
+    }
+}
+
+@Composable
+fun LoadingContent() {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight()
+    ) {
+        CircularProgressIndicator(
+            modifier = Modifier
+                .align(Alignment.Center)
+                .size(80.dp),
+            color = MaterialTheme.colorScheme.tertiary
+        )
     }
 }
 
