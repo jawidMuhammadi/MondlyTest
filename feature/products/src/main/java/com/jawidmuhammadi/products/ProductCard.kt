@@ -30,7 +30,10 @@ import com.jawidmuhammadi.imagelist.R
 import com.jawidmuhammadi.model.ProductItem
 
 @Composable
-fun ProductCard(product: ProductItem) {
+fun ProductCard(
+    product: ProductItem,
+    onItemClick: (productId: String) -> Unit
+) {
     var isLoading by remember { mutableStateOf(true) }
     var isError by remember { mutableStateOf(false) }
     val imageLoader = rememberAsyncImagePainter(
@@ -47,7 +50,8 @@ fun ProductCard(product: ProductItem) {
             containerColor = MaterialTheme.colorScheme.surfaceVariant,
         ),
         shape = MaterialTheme.shapes.small,
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier.fillMaxWidth(),
+        onClick = { onItemClick(product.id) }
     ) {
         Box(modifier = Modifier.fillMaxWidth()) {
             if (isLoading) {
@@ -95,6 +99,7 @@ private fun ProductCardPreview() {
             name = "name",
             description = "description",
             imageUrl = "https://picsum.photos/id/103/300/200"
-        )
+        ),
+        {}
     )
 }
