@@ -69,7 +69,7 @@ private fun MondlyTopBar(scrollBehavior: TopAppBarScrollBehavior) {
         ),
         title = {
             Text(
-                stringResource(id = R.string.mondly_title),
+                stringResource(id = R.string.mondly_by_pearson),
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )

@@ -15,6 +15,7 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -76,4 +77,18 @@ private fun calculateColumnCount(windowSizeClass: WindowWidthSizeClass): Int {
         WindowWidthSizeClass.Expanded -> 4
         else -> 1
     }
+}
+
+@Preview
+@Composable
+private fun ProductContentPreview() {
+    val productList = listOf(
+        ProductItem(id = "1", name = "name", description = "description", imageUrl = ""),
+        ProductItem(id = "2", name = "name2", description = "description", imageUrl = ""),
+        ProductItem(id = "3", name = "name3", description = "description", imageUrl = "")
+    )
+    ProductsContent(
+        products = productList,
+        windowSizeClass = WindowWidthSizeClass.Medium
+    )
 }
