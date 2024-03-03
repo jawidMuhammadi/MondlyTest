@@ -1,39 +1,36 @@
 package com.jawidmuhammadi.products
 
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedCard
-import androidx.compose.material3.Text
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.material3.windowsizeclass.WindowSizeClass
+import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import coil.compose.rememberAsyncImagePainter
 import com.jawidmuhammadi.imagelist.ProductListViewModel
 import com.jawidmuhammadi.imagelist.ProductsUiState
 import com.jawidmuhammadi.model.ProductItem
 
 @Composable
-fun ProductsScreen(viewModel: ProductListViewModel = viewModel()) {
-
+fun ProductsScreen(
+    viewModel: ProductListViewModel = viewModel(),
+    windowSizeClass: WindowSizeClass
+) {
     val uiState: ProductsUiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     when (uiState) {
         is ProductsUiState.Success -> {
-            ProductList(products = (uiState as ProductsUiState.Success).products)
+            ProductsContent(
+                products = (uiState as ProductsUiState.Success).products,
+                windowSizeClass = windowSizeClass.widthSizeClass
+            )
         }
 
         is ProductsUiState.Error -> {}
@@ -43,51 +40,26 @@ fun ProductsScreen(viewModel: ProductListViewModel = viewModel()) {
 }
 
 @Composable
-private fun ProductList(products: List<ProductItem>) {
-    LazyColumn(
+private fun ProductsContent(
+    products: List<ProductItem>,
+    windowSizeClass: WindowWidthSizeClass
+) {
+    val columnCount = when (windowSizeClass) {
+        WindowWidthSizeClass.Compact -> 2
+        WindowWidthSizeClass.Medium -> 3
+        WindowWidthSizeClass.Expanded -> 4
+        else -> 2
+    }
+    LazyVerticalGrid(
         modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp)
+        horizontalArrangement = Arrangement.spacedBy(12.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp),
+        columns = GridCells.Fixed(columnCount)
     ) {
         items(products) { product ->
             ProductCard(product)
-        }
-    }
-}
-
-@Composable
-fun ProductCard(product: ProductItem) {
-    OutlinedCard(
-        elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
-        border = BorderStroke(width = 1.dp, color = MaterialTheme.colorScheme.primary),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant,
-        ),
-        shape = MaterialTheme.shapes.small,
-        modifier = Modifier
-            .fillMaxWidth()
-            .width(250.dp)
-    ) {
-        Column(modifier = Modifier.fillMaxWidth()) {
-            Image(
-                modifier = Modifier
-                    .height(200.dp)
-                    .fillMaxWidth(),
-                contentScale = ContentScale.FillBounds,
-                painter = rememberAsyncImagePainter(model = product.imageUrl),
-                contentDescription = null
-            )
-            Text(
-                text = product.name,
-                modifier = Modifier.padding(top = 8.dp, start = 16.dp, end = 16.dp),
-                style = MaterialTheme.typography.titleMedium
-            )
-            Text(
-                text = product.description,
-                modifier = Modifier.padding(start = 16.dp, end = 16.dp, bottom = 12.dp),
-                style = MaterialTheme.typography.bodyMedium
-            )
         }
     }
 }

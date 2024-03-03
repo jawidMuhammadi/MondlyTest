@@ -61,6 +61,7 @@ dependencies {
     implementation(libs.lifecycle.runtime.compose)
     implementation(libs.coil.kt)
     implementation(libs.coil.kt.compose)
+    implementation(libs.androidx.compose.material3.windowSizeClass)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
