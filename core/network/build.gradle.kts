@@ -36,7 +36,7 @@ android {
 }
 
 dependencies {
-
+    implementation(project(":core:model"))
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
@@ -48,6 +48,9 @@ dependencies {
     kapt(libs.hilt.android.compiler)
 
     testImplementation(libs.junit)
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockk)
+    testImplementation(libs.kotlinx.coroutines.test)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
 }
