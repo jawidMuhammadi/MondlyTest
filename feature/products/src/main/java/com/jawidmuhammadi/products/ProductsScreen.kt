@@ -25,8 +25,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.jawidmuhammadi.imagelist.ProductListViewModel
-import com.jawidmuhammadi.imagelist.ProductsUiState
 import com.jawidmuhammadi.model.ProductItem
 
 @Composable

@@ -1,4 +1,4 @@
-package com.jawidmuhammadi.imagelist
+package com.jawidmuhammadi.products
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
