@@ -1,6 +1,6 @@
 package com.jawidmuhammadi.data.di
 
-import com.jawidmuhammadi.common.MondlyIoDispatcher
+import com.jawidmuhammadi.common.coroutines.MondlyIoDispatcher
 import com.jawidmuhammadi.data.ProductDtoMapper
 import com.jawidmuhammadi.data.ProductRepository
 import com.jawidmuhammadi.data.ProductRepositoryImp

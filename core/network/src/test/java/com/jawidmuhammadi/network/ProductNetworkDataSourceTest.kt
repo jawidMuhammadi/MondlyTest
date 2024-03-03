@@ -1,5 +1,6 @@
 package com.jawidmuhammadi.network
 
+import com.jawidmuhammadi.sharedtest.ProductsDtoMother.buildProductsDto
 import io.mockk.coEvery
 import io.mockk.mockk
 import junit.framework.TestCase.assertEquals
@@ -13,7 +14,7 @@ class ProductNetworkDataSourceTest {
 
     @Before
     fun setUp() = runTest {
-        coEvery { productRestClient.getProducts() } returns ProductsDtoMother.buildProductsDto(2)
+        coEvery { productRestClient.getProducts() } returns buildProductsDto(2)
     }
 
     @Test
@@ -21,7 +22,7 @@ class ProductNetworkDataSourceTest {
         val productNetworkDataSource = ProductNetworkDataSourceImpl(productRestClient)
 
         val result = productNetworkDataSource.getProducts()
-        val expected = ProductsDtoMother.buildProductsDto(2)
+        val expected = buildProductsDto(2)
 
         assertEquals(result, expected)
     }

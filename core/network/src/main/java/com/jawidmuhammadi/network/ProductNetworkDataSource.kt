@@ -1,5 +1,7 @@
 package com.jawidmuhammadi.network
 
+import com.jawidmuhammadi.common.dto.ProductsDto
+
 interface ProductNetworkDataSource {
     suspend fun getProducts(): ProductsDto
 }

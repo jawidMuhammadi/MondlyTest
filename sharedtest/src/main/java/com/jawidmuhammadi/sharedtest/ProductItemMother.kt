@@ -1,4 +1,4 @@
-package com.jawidmuhammadi.network
+package com.jawidmuhammadi.sharedtest
 
 import com.jawidmuhammadi.model.ProductItem
 

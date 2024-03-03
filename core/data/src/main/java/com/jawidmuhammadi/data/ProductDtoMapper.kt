@@ -1,7 +1,7 @@
 package com.jawidmuhammadi.data
 
 import com.jawidmuhammadi.model.ProductItem
-import com.jawidmuhammadi.network.ProductsDto
+import com.jawidmuhammadi.common.dto.ProductsDto
 import javax.inject.Inject
 
 class ProductDtoMapper @Inject constructor() {

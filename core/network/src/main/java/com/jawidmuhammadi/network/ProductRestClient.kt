@@ -1,5 +1,6 @@
 package com.jawidmuhammadi.network
 
+import com.jawidmuhammadi.common.dto.ProductsDto
 import retrofit2.http.GET
 
 interface ProductRestClient {

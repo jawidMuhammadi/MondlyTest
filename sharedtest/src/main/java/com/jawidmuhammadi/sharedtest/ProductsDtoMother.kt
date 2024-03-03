@@ -1,9 +1,8 @@
-package com.jawidmuhammadi.network
+package com.jawidmuhammadi.sharedtest
 
-import com.jawidmuhammadi.network.ProductsDto.DataCollection
-import com.jawidmuhammadi.network.ProductsDto.DataCollection.Item
-import com.jawidmuhammadi.network.ProductsDto.DataCollection.Item.Attributes
-import com.jawidmuhammadi.network.ProductsDto.DataCollection.Item.Attributes.ImageInfo
+import com.jawidmuhammadi.common.dto.ProductsDto
+import com.jawidmuhammadi.common.dto.ProductsDto.DataCollection
+import com.jawidmuhammadi.common.dto.ProductsDto.DataCollection.Item.Attributes
 
 object ProductsDtoMother {
     fun buildProductsDto(itemCount: Int): ProductsDto {
@@ -11,12 +10,12 @@ object ProductsDtoMother {
         for (i in 1..itemCount) {
             dataCollection.add(
                 DataCollection(
-                    item = Item(
+                    item = DataCollection.Item(
                         id = "id$i",
                         attributes = Attributes(
                             description = "description$i",
                             name = "name$i",
-                            imageInfo = ImageInfo(
+                            imageInfo = Attributes.ImageInfo(
                                 imageUrl = "imageUrl$i"
                             )
                         )

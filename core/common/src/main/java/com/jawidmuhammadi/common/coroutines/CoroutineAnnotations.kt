@@ -1,4 +1,4 @@
-package com.jawidmuhammadi.common
+package com.jawidmuhammadi.common.coroutines
 
 import javax.inject.Qualifier
 import kotlin.annotation.AnnotationRetention.RUNTIME

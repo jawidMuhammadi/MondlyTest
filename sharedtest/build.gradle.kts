@@ -1,12 +1,10 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
-    kotlin("kapt")
-    alias(libs.plugins.hilt.android)
 }
 
 android {
-    namespace = "com.jawidmuhammadi.common"
+    namespace = "com.jawidmuhammadi.sharedtest"
     compileSdk = 34
 
     defaultConfig {
@@ -36,11 +34,9 @@ android {
 
 dependencies {
 
+    implementation(project(":core:model"))
+    implementation(project(":core:common"))
     implementation(libs.core.ktx)
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.android.compiler)
-    implementation(libs.gson)
-
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)

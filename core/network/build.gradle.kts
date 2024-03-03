@@ -37,6 +37,7 @@ android {
 
 dependencies {
     implementation(project(":core:model"))
+    implementation(project(":core:common"))
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
@@ -47,6 +48,7 @@ dependencies {
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
 
+    testImplementation(project(":sharedtest"))
     testImplementation(libs.junit)
     testImplementation(libs.mockito.core)
     testImplementation(libs.mockk)

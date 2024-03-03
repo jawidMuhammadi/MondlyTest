@@ -1,4 +1,4 @@
-package com.jawidmuhammadi.common
+package com.jawidmuhammadi.common.coroutines
 
 import dagger.Module
 import dagger.Provides

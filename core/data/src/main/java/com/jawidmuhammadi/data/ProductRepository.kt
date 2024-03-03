@@ -1,6 +1,5 @@
 package com.jawidmuhammadi.data
 
-import com.jawidmuhammadi.common.MondlyIoDispatcher
 import com.jawidmuhammadi.model.ProductItem
 import com.jawidmuhammadi.network.ProductNetworkDataSource
 import kotlinx.coroutines.CoroutineDispatcher

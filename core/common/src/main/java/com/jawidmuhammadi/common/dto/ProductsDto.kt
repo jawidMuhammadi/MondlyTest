@@ -1,4 +1,4 @@
-package com.jawidmuhammadi.network
+package com.jawidmuhammadi.common.dto
 
 
 import com.google.gson.annotations.SerializedName
