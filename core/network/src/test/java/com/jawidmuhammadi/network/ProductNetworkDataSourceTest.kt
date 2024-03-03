@@ -11,6 +11,7 @@ import org.junit.Test
 class ProductNetworkDataSourceTest {
 
     private val productRestClient: ProductRestClient = mockk()
+    private lateinit var productNetworkDataSource: ProductNetworkDataSource
 
     @Before
     fun setUp() = runTest {
@@ -19,7 +20,7 @@ class ProductNetworkDataSourceTest {
 
     @Test
     fun `given ProductRestClient, call getProducts, then correct items returned`() = runTest {
-        val productNetworkDataSource = ProductNetworkDataSourceImpl(productRestClient)
+        productNetworkDataSource = ProductNetworkDataSourceImpl(productRestClient)
 
         val result = productNetworkDataSource.getProducts()
         val expected = buildProductsDto(2)
