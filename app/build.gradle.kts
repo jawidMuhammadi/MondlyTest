@@ -17,7 +17,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.jawidmuhammadi.mondlytest.CustomJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -68,10 +68,18 @@ dependencies {
     implementation(libs.androidx.compose.material3.windowSizeClass)
 
     testImplementation(libs.junit)
+
+    androidTestImplementation(project(":core:network"))
+    androidTestImplementation(project(":core:common"))
+    androidTestImplementation(project(":sharedtest"))
+    androidTestImplementation(platform(libs.compose.bom))
+    androidTestImplementation(libs.hilt.android.testing)
+    kaptAndroidTest(libs.hilt.android.compiler)
+    androidTestImplementation(libs.ui.test.junit4)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    androidTestImplementation(platform(libs.compose.bom))
-    androidTestImplementation(libs.ui.test.junit4)
+    androidTestImplementation(libs.androidx.junit.ktx)
+
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
 }
