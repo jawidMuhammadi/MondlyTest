@@ -12,8 +12,8 @@ This sample app showcases best practices in modern Android development, displayi
 - **MVVM Clean Architecture** 
 - **Fully Modularized**
 - **Material3**
-## Testing
 - **Adaptive Layout**
+## Testing
 - **Unit, Integration & UI Tests**
 - **Mockito**
 - **Hilt and Compose Test**
