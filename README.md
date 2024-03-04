@@ -1,25 +1,25 @@
 # Mondly Test
 This sample app showcases best practices in modern Android development, displaying images with names and descriptions.
 
-## Libraries and Project Architecture:
+## Libraries
 - **Jetpack Compose**
 - **Coroutines**
 - **StateFlow**
 - **Hilt** 
 - **Retrofit, OkHttp, Gson**
 - **Coil**: Downloading and displaying images
---
+## Architecture
 - **MVVM Clean Architecture** 
 - **Fully Modularized**
 - **Material3**
+## Testing
 - **Adaptive Layout**
---
 - **Unit, Integration & UI Tests**
 - **Mockito**
 - **Hilt and Compose Test**
 
 
-## Screenshots:
+## Screenshots
 **Phone Portrait**:
 
 ![Screenshot_20240304_211202 (1)](https://github.com/jawidMuhammadi/MondlyTest/assets/49963168/5ba8cd18-14ab-41db-ab7a-47e5f912b7c7)
