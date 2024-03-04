@@ -8,12 +8,12 @@ This sample app showcases best practices in modern Android development, displayi
 - **Hilt** 
 - **Retrofit, OkHttp, Gson**
 - **Coil**: Downloading and displaying images
----
+--
 - **MVVM Clean Architecture** 
 - **Fully Modularized**
 - **Material3**
 - **Adaptive Layout**
----
+--
 - **Unit, Integration & UI Tests**
 - **Mockito**
 - **Hilt and Compose Test**
